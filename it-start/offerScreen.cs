@@ -22,7 +22,7 @@ namespace it_start
         {
             int caseSwitch1 = comboBox1.SelectedIndex;
             int caseSwitch2 = comboBox2.SelectedIndex;
-            String aLat, aLon, bLat, bLon;
+            string aLat, aLon, bLat, bLon;
 
             switch (caseSwitch1)
             {
