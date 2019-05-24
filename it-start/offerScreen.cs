@@ -82,7 +82,7 @@ namespace it_start
                 case 4: //"Шимановского(Ленина)":
                     bLat = "50.257093";
                     bLon = "127.540564";
-                    MessageBox.Show(comboBox2.Text);
+                    MessageBox.Show(bLat + ", " + bLon);
                     break;
                 default:
                     bLat = "0";
