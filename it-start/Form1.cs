@@ -16,5 +16,17 @@ namespace it_start
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            offerScreen1.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            mapScreen1.BringToFront();
+            mapScreen1.APoint = offerScreen1.APoint;
+            mapScreen1.BPoint = offerScreen1.BPoint;
+        }
     }
 }
