@@ -37,13 +37,13 @@ namespace it_start
                              + r["Astop"].ToString() + ", "
                              + r["Lat"].ToString();
                         Console.WriteLine(line);
-                        MessageBox.Show("wowo");
+                        MessageBox.Show(line);
                     }
                     r.Close();
                 }
                 catch (SQLiteException ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
 
                 conn.Dispose();
