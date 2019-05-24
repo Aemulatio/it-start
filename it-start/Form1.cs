@@ -27,9 +27,6 @@ namespace it_start
             mapScreen1.BringToFront();
             mapScreen1.APoint = offerScreen1.APoint;
             mapScreen1.BPoint = offerScreen1.BPoint;
-
-
-
         }
     }
 }

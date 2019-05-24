@@ -31,5 +31,11 @@ namespace it_start
             get { return bPoint; }
             set { bPoint = value; }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            APoint = new PointF(50.273101f, 127.537152f);
+            BPoint = new PointF(50.273454f, 127.534234f);
+        }
     }
 }

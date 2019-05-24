@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GMap.NET.WindowsForms.Markers;
 
 namespace it_start
 {
@@ -104,6 +105,33 @@ namespace it_start
 
             gMapControl1.Position = new GMap.NET.PointLatLng(50.273101, 127.537152);
             gMapControl1.ShowCenter = false;
+
+            if (APoint!=null && BPoint != null)
+            {
+                //Создаем новый список маркеров, с указанием компонента 
+                //в котором они будут использоваться и названием списка
+                GMap.NET.WindowsForms.GMapOverlay markersOverlay = new GMap.NET.WindowsForms.GMapOverlay("A");
+
+                //Инициализация нового ЗЕЛЕНОГО маркера, с указанием его координат
+                GMap.NET.WindowsForms.Markers.GMarkerGoogle marker =
+                    new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                        new GMap.NET.PointLatLng(APoint.X, BPoint.Y), GMarkerGoogleType.green);
+                marker.ToolTip =
+                    new GMap.NET.WindowsForms.ToolTips.GMapRoundedToolTip(marker);
+                //Текст отображаемый при наведении на маркер
+                marker.ToolTipText = "Красная площадь";
+                //Добавляем маркер в список маркеров
+                markersOverlay.Markers.Add(marker);
+                //Добавляем в компонент, список маркеров 
+                gMapControl1.Overlays.Add(markersOverlay);
+            }
+
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            mapScreen_Load(sender,e);
         }
     }
 }
