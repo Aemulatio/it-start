@@ -20,6 +20,7 @@ namespace it_start
 
         private void Button1_Click(object sender, EventArgs e)
         {
+
             using (SQLiteConnection conn = new SQLiteConnection("Data Source=bus.db; Version=3;"))
             {
                 conn.Open();
