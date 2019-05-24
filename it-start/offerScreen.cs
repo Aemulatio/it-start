@@ -16,5 +16,20 @@ namespace it_start
         {
             InitializeComponent();
         }
+
+        private PointF aPoint;
+        private PointF bPoint;
+
+        public PointF APoint
+        {
+            get { return aPoint; }
+            set { aPoint = value; }
+        }
+
+        public PointF BPoint
+        {
+            get { return bPoint; }
+            set { bPoint = value; }
+        }
     }
 }
