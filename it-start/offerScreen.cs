@@ -35,8 +35,8 @@ namespace it_start
                         line = r["id"].ToString() + ", "
                              + r["username"].ToString() + ", "
                              + r["Astop"].ToString() + ", "
-                             + r["Lat"].ToString();
-                        Console.WriteLine(line);
+                             + r["ALat"].ToString() + ", "
+                             + r["BLon"].ToString();
                         MessageBox.Show(line);
                     }
                     r.Close();
