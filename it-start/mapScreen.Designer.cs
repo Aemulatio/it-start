@@ -66,6 +66,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // mapScreen
@@ -77,6 +78,7 @@
             this.Name = "mapScreen";
             this.Size = new System.Drawing.Size(370, 520);
             this.Load += new System.EventHandler(this.mapScreen_Load);
+            this.Enter += new System.EventHandler(this.mapScreen_Enter);
             this.ResumeLayout(false);
 
         }

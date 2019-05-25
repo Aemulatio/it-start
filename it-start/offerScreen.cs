@@ -93,10 +93,10 @@ namespace it_start
 
                 try
                 {
-                    cmd.CommandText = "INSERT INTO ActiveResp (Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('" +
-                                      comboBox1.Text + "','" + comboBox2.Text + "'," + APoint.Lng + "," + APoint.Lat +
-                                      "," + BPoint.Lng +
-                                      "," + BPoint.Lat + ")";
+                    cmd.CommandText = "INSERT INTO ActiveResp (username,Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('" + textBox1.Text + "','" +
+                                      comboBox1.Text + "','" + comboBox2.Text + "','" + APoint.Lng.ToString() + "','" + APoint.Lat.ToString() +
+                                      "','" + BPoint.Lng.ToString() +
+                                      "','" + BPoint.Lat.ToString() + "')";
                     cmd.ExecuteNonQuery();
                 }
                 catch (SQLiteException ex)
@@ -105,6 +105,8 @@ namespace it_start
                 }
 
                 conn.Dispose();
+
+
             }
         }
     }
