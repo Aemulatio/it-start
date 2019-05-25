@@ -39,7 +39,7 @@ namespace it_start
         {
             TimeSpan temp = start - DateTime.Now;
 
-            if ( temp.TotalSeconds < -5)
+            if (temp.TotalSeconds < -5)
             {
                 label4.Visible = false;
                 timer1.Stop();
@@ -98,33 +98,39 @@ namespace it_start
                     break;
             }
 
-            using (SQLiteConnection conn = new SQLiteConnection("Data Source=bus.db; Version=3;"))
+            if (comboBox1.SelectedIndex != -1 && comboBox2.SelectedIndex != -1)
             {
-                conn.Open();
-                SQLiteCommand cmd = conn.CreateCommand();
-
-                try
+                using (SQLiteConnection conn = new SQLiteConnection("Data Source=bus.db; Version=3;"))
                 {
-                    cmd.CommandText = "INSERT INTO ActiveResp (username,Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('" + textBox1.Text + "','" +
-                                      comboBox1.Text + "','" + comboBox2.Text + "','" + APoint.Lng.ToString() + "','" + APoint.Lat.ToString() +
-                                      "','" + BPoint.Lng.ToString() +
-                                      "','" + BPoint.Lat.ToString() + "')";
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SQLiteException ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    conn.Open();
+                    SQLiteCommand cmd = conn.CreateCommand();
+
+                    try
+                    {
+                        cmd.CommandText =
+                            "INSERT INTO ActiveResp (username,Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('" +
+                            textBox1.Text + "','" +
+                            comboBox1.Text + "','" + comboBox2.Text + "','" + APoint.Lng.ToString() + "','" +
+                            APoint.Lat.ToString() +
+                            "','" + BPoint.Lng.ToString() +
+                            "','" + BPoint.Lat.ToString() + "')";
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SQLiteException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    conn.Dispose();
                 }
 
-                conn.Dispose();
+                start = DateTime.Now;
+                timer1.Start();
+                label4.Visible = true;
+                textBox1.Text = String.Empty;
+                comboBox1.ResetText();
+                comboBox2.ResetText();
             }
-
-            start = DateTime.Now;
-            timer1.Start();
-            label4.Visible = true;
-            textBox1.Text = String.Empty;
-            comboBox1.ResetText();
-            comboBox2.ResetText();
         }
     }
 }
