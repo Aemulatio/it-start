@@ -145,7 +145,15 @@ namespace it_start
             {
                 routes?.Routes.RemoveAt(0);
             }
+            else if (routes.Routes.Count <= 0)
+            {
+                deletingTimer.Stop();
+            }
 
+            if (routes.Routes.Count <1 )
+            {
+                addingTimer.Start();
+            }
             if (markers.Markers.Count > 1)
             {
                 markers.Markers.RemoveAt(0);
@@ -190,6 +198,11 @@ namespace it_start
                 routes.Routes.Add(r);
             }
 
+            if (routes.Routes.Count > 4)
+            {
+                deletingTimer.Start();
+            }
+
             //50.262690, 127.540563
             //50.259903, 127.513798
             //50.262110, 127.546652
@@ -201,7 +214,7 @@ namespace it_start
         {
             deletingTimer = new System.Timers.Timer();
             addingTimer = new System.Timers.Timer();
-
+            addingTimer.Stop();
             deletingTimer.Interval = 6000;
             addingTimer.Interval = 8000;
             // Hook up the Elapsed event for the timer. 
@@ -214,7 +227,7 @@ namespace it_start
 
             // Start the timer
             deletingTimer.Enabled = true;
-            addingTimer.Enabled = true;
+            //addingTimer.Enabled = true;
         }
     }
 }

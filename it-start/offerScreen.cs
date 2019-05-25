@@ -65,6 +65,9 @@ namespace it_start
                 case 4: //"Шимановского(Ленина)":
                     APoint = PointLatLng.Add(new PointLatLng(50.257093, 127.540564), SizeLatLng.Empty);
                     break;
+                case 5: //"Шимановского(Ленина)":
+                    APoint = PointLatLng.Add(new PointLatLng(50.260262, 127.536841), SizeLatLng.Empty);
+                    break;
                 default:
                     break;
             }
@@ -81,7 +84,6 @@ namespace it_start
 
                     break;
                 case 2: //"Шимановского(Горького)":
-
                     BPoint = PointLatLng.Add(new PointLatLng(50.265439, 127.542868), SizeLatLng.Empty);
 
                     break;
@@ -93,6 +95,9 @@ namespace it_start
                 case 4: //"Шимановского(Ленина)":
 
                     BPoint = PointLatLng.Add(new PointLatLng(50.257093, 127.540564), SizeLatLng.Empty);
+                    break;
+                case 5: //"Шимановского(Ленина)":
+                    BPoint = PointLatLng.Add(new PointLatLng(50.260262, 127.536841), SizeLatLng.Empty);
                     break;
                 default:
                     break;

@@ -36,16 +36,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.homeBtn = new System.Windows.Forms.Button();
+            this.homePage1 = new it_start.HomePage();
             this.offerScreen1 = new it_start.offerScreen();
             this.mapScreen1 = new it_start.mapScreen();
             this.adminPanel1 = new it_start.AdminPanel();
-            this.homePage1 = new it_start.HomePage();
             this.sidePanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel
             // 
+            this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.sidePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.sidePanel.Controls.Add(this.pointerPanel);
             this.sidePanel.Controls.Add(this.button3);
@@ -71,9 +72,9 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Transparent;
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(3, 389);
             this.button3.Name = "button3";
@@ -84,9 +85,9 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(3, 278);
             this.button2.Name = "button2";
@@ -97,9 +98,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(2, 167);
             this.button1.Name = "button1";
@@ -110,6 +111,7 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPanel.Controls.Add(this.homePage1);
             this.mainPanel.Controls.Add(this.offerScreen1);
@@ -123,9 +125,9 @@
             // 
             // homeBtn
             // 
-            this.homeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.homeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.homeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.homeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.homeBtn.Image = ((System.Drawing.Image)(resources.GetObject("homeBtn.Image")));
             this.homeBtn.Location = new System.Drawing.Point(2, 56);
             this.homeBtn.Name = "homeBtn";
@@ -134,9 +136,18 @@
             this.homeBtn.UseVisualStyleBackColor = false;
             this.homeBtn.Click += new System.EventHandler(this.homeBtn_click);
             // 
+            // homePage1
+            // 
+            this.homePage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
+            this.homePage1.Location = new System.Drawing.Point(-1, -1);
+            this.homePage1.Name = "homePage1";
+            this.homePage1.Size = new System.Drawing.Size(370, 520);
+            this.homePage1.TabIndex = 3;
+            // 
             // offerScreen1
             // 
             this.offerScreen1.APoint = ((GMap.NET.PointLatLng)(resources.GetObject("offerScreen1.APoint")));
+            this.offerScreen1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.offerScreen1.BPoint = ((GMap.NET.PointLatLng)(resources.GetObject("offerScreen1.BPoint")));
             this.offerScreen1.Location = new System.Drawing.Point(0, -3);
             this.offerScreen1.Margin = new System.Windows.Forms.Padding(4);
@@ -147,6 +158,7 @@
             // mapScreen1
             // 
             this.mapScreen1.APoint = ((GMap.NET.PointLatLng)(resources.GetObject("mapScreen1.APoint")));
+            this.mapScreen1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(58)))));
             this.mapScreen1.BPoint = ((GMap.NET.PointLatLng)(resources.GetObject("mapScreen1.BPoint")));
             this.mapScreen1.Location = new System.Drawing.Point(0, 0);
             this.mapScreen1.Margin = new System.Windows.Forms.Padding(4);
@@ -161,13 +173,6 @@
             this.adminPanel1.Name = "adminPanel1";
             this.adminPanel1.Size = new System.Drawing.Size(370, 520);
             this.adminPanel1.TabIndex = 2;
-            // 
-            // homePage1
-            // 
-            this.homePage1.Location = new System.Drawing.Point(-1, -1);
-            this.homePage1.Name = "homePage1";
-            this.homePage1.Size = new System.Drawing.Size(370, 520);
-            this.homePage1.TabIndex = 3;
             // 
             // MainForm
             // 
