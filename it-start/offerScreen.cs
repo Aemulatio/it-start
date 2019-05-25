@@ -17,76 +17,97 @@ namespace it_start
         {
             InitializeComponent();
         }
+        float aLat, aLon, bLat, bLon;
+
+        public float ALat
+        {
+            get { return aLat; }
+            set { aLat = value; }
+        }
+
+        public float ALon
+        {
+            get { return aLon; }
+            set { aLon = value; }
+        }
+
+        public float BLat
+        {
+            get { return bLat; }
+            set { bLat = value; }
+        }
+
+        public float BLon
+        {
+            get { return bLon; }
+            set { bLon = value; }
+        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            int caseSwitch1 = comboBox1.SelectedIndex;
-            int caseSwitch2 = comboBox2.SelectedIndex;
-            string aLat, aLon, bLat, bLon;
-
-            switch (caseSwitch1)
+            switch (comboBox1.SelectedIndex)
             {
                 case 0: // "Кузнечная(Ленина)":
-                    aLat = "50.256451";
-                    aLon = "127.547085";
-                    MessageBox.Show(aLat + ", " +aLon);
+                    ALat = 50.256451f;
+                    ALon = 127.547085f;
+                    MessageBox.Show(ALat + ", " +ALon);
                     break;
                 case 1: // "Театральная(Зейская)":
-                    aLat = "50.259320";
-                    aLon = "127.550686";
-                    MessageBox.Show(aLat + ", " + aLon);
+                    ALat = 50.259320f;
+                    ALon = 127.550686f;
+                    MessageBox.Show(ALat + ", " + ALon);
                     break;
                 case 2: //"Шимановского(Горького)":
-                    aLat = "50.265439";
-                    aLon = "127.542868";
-                    MessageBox.Show(aLat + ", " + aLon);
+                    ALat = 50.265439f;
+                    ALon = 127.542868f;
+                    MessageBox.Show(ALat + ", " + ALon);
                     break;
                 case 3: //"Универмаг":
-                    aLat = "50.262894";
-                    aLon = "127.534690";
-                    MessageBox.Show(aLat + ", " + aLon);
+                    ALat = 50.262894f;
+                    ALon = 127.534690f;
+                    MessageBox.Show(ALat + ", " + ALon);
                     break;
                 case 4: //"Шимановского(Ленина)":
-                    aLat = "50.257093";
-                    aLon = "127.540564";
-                    MessageBox.Show(aLat + ", " + aLon);
+                    ALat = 50.257093f;
+                    ALon = 127.540564f;
+                    MessageBox.Show(ALat + ", " + ALon);
                     break;
                 default:
-                    aLat = "0";
-                    aLon = "0";
+                    ALat = 0f;
+                    ALon = 0f;
                     break;
             }
 
-            switch (caseSwitch2)
+            switch (comboBox2.SelectedIndex)
             {
                 case 0: // "Кузнечная(Ленина)":
-                    bLat = "50.256451";
-                    bLon = "127.547085";
-                    MessageBox.Show(bLat + ", " + bLon);
+                    BLat = 50.256451f;
+                    BLon = 127.547085f;
+                    MessageBox.Show(BLat + ", " + BLon);
                     break;
                 case 1: // "Театральная(Зейская)":
-                    bLat = "50.259320";
-                    bLon = "127.550686";
-                    MessageBox.Show(bLat + ", " + bLon);
+                    BLat = 50.259320f;
+                    BLon = 127.550686f;
+                    MessageBox.Show(BLat + ", " + BLon);
                     break;
                 case 2: //"Шимановского(Горького)":
-                    bLat = "50.265439";
-                    bLon = "127.542868";
-                    MessageBox.Show(bLat + ", " + bLon);
+                    BLat = 50.265439f;
+                    BLon = 127.542868f;
+                    MessageBox.Show(BLat + ", " + BLon);
                     break;
                 case 3: //"Универмаг":
-                    bLat = "50.262894";
-                    bLon = "127.534690";
-                    MessageBox.Show(bLat + ", " + bLon);
+                    BLat = 50.262894f;
+                    BLon = 127.534690f;
+                    MessageBox.Show(BLat + ", " + BLon);
                     break;
                 case 4: //"Шимановского(Ленина)":
-                    bLat = "50.257093";
-                    bLon = "127.540564";
-                    MessageBox.Show(bLat + ", " + bLon);
+                    BLat = 50.257093f;
+                    BLon = 127.540564f;
+                    MessageBox.Show(BLat + ", " + BLon);
                     break;
                 default:
-                    bLat = "0";
-                    bLon = "0";
+                    BLat = 0f;
+                    BLon = 0f;
                     break;
             }
 
@@ -97,7 +118,7 @@ namespace it_start
                 
                 try
                 {
-                    cmd.CommandText = "INSERT INTO ActiveResp (Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('"+comboBox1.Text+"','"+comboBox2.Text+"',"+aLon+","+aLat+","+bLon+","+bLat+")";
+                    cmd.CommandText = "INSERT INTO ActiveResp (Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('"+comboBox1.Text+"','"+comboBox2.Text+"',"+ALon+","+ALat+","+BLon+","+BLat+")";
                     cmd.ExecuteNonQuery();
                 }
                 catch (SQLiteException ex)
