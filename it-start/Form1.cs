@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace it_start
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            offerScreen1.BringToFront();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            mapScreen1.BringToFront();
+            mapScreen1.APoint = offerScreen1.APoint;
+            mapScreen1.BPoint = offerScreen1.BPoint;
         }
     }
 }

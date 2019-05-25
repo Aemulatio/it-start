@@ -91,10 +91,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="mapScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="mapScreen.Designer.cs">
+      <DependentUpon>mapScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="offerScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="offerScreen.Designer.cs">
+      <DependentUpon>offerScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mapScreen.resx">
+      <DependentUpon>mapScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="offerScreen.resx">
+      <DependentUpon>offerScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
