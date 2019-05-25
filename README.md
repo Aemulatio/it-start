@@ -24,4 +24,4 @@ git clone https://github.com/Aemulatio/it-start.git
 
 * **Filin Aleksandr** - *Leader* - [Александр Филин](https://vk.com/id103283716)
 * **Svechnikov Stepan** - *Major Developer* - [Степан Свечников](https://vk.com/aemulatio)
-* **Shuvaev Dmitry** - *UI/UX* - [Шуваев Дмитрий](https://vk.com/id393438474)
+* **Shuvaev Dmitry** - *Developer* - [Шуваев Дмитрий](https://vk.com/id393438474)
