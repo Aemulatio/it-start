@@ -13,6 +13,7 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
+using System.Data.SQLite;
 
 namespace it_start
 {
@@ -53,6 +54,37 @@ namespace it_start
 
         private void button1_Click(object sender, EventArgs e)
         {
+            using (SQLiteConnection conn = new SQLiteConnection("Data Source=bus.db; Version=3;"))
+            {
+                conn.Open();
+                SQLiteCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM ActiveResp";
+                try
+                {
+                    SQLiteDataReader r = cmd.ExecuteReader();
+                    double ALat     = 0;
+                    double ALon     = 0;
+                    double BLat     = 0;
+                    double BLon     = 0;
+                    string username = String.Empty;
+                    while (r.Read())
+                    {
+                        username = "" + r["username"];
+                        ALat = double.Parse(r["ALat"].ToString());
+                        ALon = double.Parse(r["ALon"].ToString());
+                        BLat = double.Parse(r["BLat"].ToString());
+                        BLon = double.Parse(r["BLon"].ToString());
+                        MessageBox.Show(username + " " + ALat + " " + ALon + " " + BLat + " " + BLon);
+                    }
+                    r.Close();
+                }
+                catch (SQLiteException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                conn.Dispose();
+            }
             _points.Clear();
             gMapControl1.Overlays.Clear();
 
@@ -93,6 +125,44 @@ namespace it_start
                 routes.Routes.Add(r);
                 gMapControl1.Overlays.Add(routes);
             }
+
+            //if (APoint != PointLatLng.Empty && BPoint != PointLatLng.Empty)
+            //{
+            //    _points.Add(new PointLatLng(APoint.Lat, APoint.Lng));
+            //    _points.Add(new PointLatLng(BPoint.Lat, BPoint.Lng));
+
+            //    var markers = new GMapOverlay("markers");
+            //    var marker = new GMarkerGoogle(APoint, GMarkerGoogleType.red_small);
+            //    markers.Markers.Add(marker);
+            //    markers.Markers.Add(new GMarkerGoogle(BPoint, GMarkerGoogleType.red_small));
+            //    gMapControl1.Overlays.Add(markers);
+
+            //    foreach (var VARIABLE in _points)
+            //    {
+            //        Console.WriteLine(VARIABLE.Lat);
+            //    }
+
+            //    var route = GoogleMapProvider.Instance.GetRoute(_points[0], _points[1], false, false, 13);
+
+            //    foreach (var VARIABLE in route.Points)
+            //    {
+            //        Console.WriteLine(VARIABLE);
+            //    }
+
+            //    var r = new GMapRoute(route.Points, "Route")
+            //    {
+            //        Stroke = new Pen(Color.Red, 5)
+            //    };
+
+            //    foreach (var VARIABLE in r.LocalPoints)
+            //    {
+            //        Console.WriteLine(VARIABLE + " - r");
+            //    }
+
+            //    var routes = new GMapOverlay("routes");
+            //    routes.Routes.Add(r);
+            //    gMapControl1.Overlays.Add(routes);
+            //}
         }
     }
 }
