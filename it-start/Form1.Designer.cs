@@ -34,17 +34,17 @@
             this.button1 = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.pointerPanel = new System.Windows.Forms.Panel();
             this.offerScreen1 = new it_start.offerScreen();
             this.mapScreen1 = new it_start.mapScreen();
             this.adminPanel1 = new it_start.AdminPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.sidePanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidePanel
             // 
-            this.sidePanel.Controls.Add(this.panel1);
+            this.sidePanel.Controls.Add(this.pointerPanel);
             this.sidePanel.Controls.Add(this.button3);
             this.sidePanel.Controls.Add(this.button2);
             this.sidePanel.Controls.Add(this.button1);
@@ -95,6 +95,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Transparent;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(3, 419);
             this.button3.Name = "button3";
@@ -102,6 +103,14 @@
             this.button3.TabIndex = 0;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // pointerPanel
+            // 
+            this.pointerPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.pointerPanel.Location = new System.Drawing.Point(3, 142);
+            this.pointerPanel.Name = "pointerPanel";
+            this.pointerPanel.Size = new System.Drawing.Size(47, 15);
+            this.pointerPanel.TabIndex = 1;
             // 
             // offerScreen1
             // 
@@ -127,14 +136,6 @@
             this.adminPanel1.Name = "adminPanel1";
             this.adminPanel1.Size = new System.Drawing.Size(370, 520);
             this.adminPanel1.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel1.Location = new System.Drawing.Point(3, 142);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(47, 15);
-            this.panel1.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -162,7 +163,7 @@
         private mapScreen mapScreen1;
         private System.Windows.Forms.Button button3;
         private AdminPanel adminPanel1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pointerPanel;
     }
 }
 
