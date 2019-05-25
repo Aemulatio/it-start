@@ -33,6 +33,18 @@ namespace it_start
             set { bPoint = value; }
         }
 
+        private DateTime start;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeSpan temp = start - DateTime.Now;
+
+            if ( temp.TotalSeconds < -5)
+            {
+                label4.Visible = false;
+                timer1.Stop();
+            }
+        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -105,9 +117,14 @@ namespace it_start
                 }
 
                 conn.Dispose();
-
-
             }
+
+            start = DateTime.Now;
+            timer1.Start();
+            label4.Visible = true;
+            textBox1.Text = String.Empty;
+            comboBox1.ResetText();
+            comboBox2.ResetText();
         }
     }
 }
