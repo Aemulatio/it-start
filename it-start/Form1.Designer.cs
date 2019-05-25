@@ -51,8 +51,9 @@
             this.sidePanel.Controls.Add(this.button1);
             this.sidePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidePanel.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(56, 520);
+            this.sidePanel.Size = new System.Drawing.Size(74, 640);
             this.sidePanel.TabIndex = 0;
             this.sidePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sidePanel_MouseDown);
             this.sidePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.sidePanel_MouseMove);
@@ -61,9 +62,10 @@
             // pointerPanel
             // 
             this.pointerPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.pointerPanel.Location = new System.Drawing.Point(3, 104);
+            this.pointerPanel.Location = new System.Drawing.Point(4, 128);
+            this.pointerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pointerPanel.Name = "pointerPanel";
-            this.pointerPanel.Size = new System.Drawing.Size(47, 3);
+            this.pointerPanel.Size = new System.Drawing.Size(63, 4);
             this.pointerPanel.TabIndex = 1;
             // 
             // button3
@@ -72,12 +74,12 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Transparent;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(3, 389);
+            this.button3.Location = new System.Drawing.Point(4, 479);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(47, 48);
+            this.button3.Size = new System.Drawing.Size(63, 59);
             this.button3.TabIndex = 0;
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
@@ -86,9 +88,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Transparent;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(3, 224);
+            this.button2.Location = new System.Drawing.Point(4, 276);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(47, 48);
+            this.button2.Size = new System.Drawing.Size(63, 59);
             this.button2.TabIndex = 0;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -99,9 +102,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Transparent;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(3, 59);
+            this.button1.Location = new System.Drawing.Point(4, 73);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 48);
+            this.button1.Size = new System.Drawing.Size(63, 59);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -113,18 +117,20 @@
             this.mainPanel.Controls.Add(this.mapScreen1);
             this.mainPanel.Controls.Add(this.adminPanel1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(56, 0);
+            this.mainPanel.Location = new System.Drawing.Point(74, 0);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(370, 520);
+            this.mainPanel.Size = new System.Drawing.Size(494, 640);
             this.mainPanel.TabIndex = 1;
             // 
             // offerScreen1
             // 
             this.offerScreen1.APoint = ((GMap.NET.PointLatLng)(resources.GetObject("offerScreen1.APoint")));
             this.offerScreen1.BPoint = ((GMap.NET.PointLatLng)(resources.GetObject("offerScreen1.BPoint")));
-            this.offerScreen1.Location = new System.Drawing.Point(0, -3);
+            this.offerScreen1.Location = new System.Drawing.Point(0, -4);
+            this.offerScreen1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.offerScreen1.Name = "offerScreen1";
-            this.offerScreen1.Size = new System.Drawing.Size(370, 520);
+            this.offerScreen1.Size = new System.Drawing.Size(493, 640);
             this.offerScreen1.TabIndex = 0;
             // 
             // mapScreen1
@@ -132,25 +138,28 @@
             this.mapScreen1.APoint = ((GMap.NET.PointLatLng)(resources.GetObject("mapScreen1.APoint")));
             this.mapScreen1.BPoint = ((GMap.NET.PointLatLng)(resources.GetObject("mapScreen1.BPoint")));
             this.mapScreen1.Location = new System.Drawing.Point(0, 0);
+            this.mapScreen1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.mapScreen1.Name = "mapScreen1";
-            this.mapScreen1.Size = new System.Drawing.Size(370, 520);
+            this.mapScreen1.Size = new System.Drawing.Size(493, 640);
             this.mapScreen1.TabIndex = 1;
             // 
             // adminPanel1
             // 
             this.adminPanel1.Location = new System.Drawing.Point(0, 0);
+            this.adminPanel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.adminPanel1.Name = "adminPanel1";
-            this.adminPanel1.Size = new System.Drawing.Size(370, 520);
+            this.adminPanel1.Size = new System.Drawing.Size(493, 640);
             this.adminPanel1.TabIndex = 2;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 520);
+            this.ClientSize = new System.Drawing.Size(568, 640);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.sidePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.sidePanel.ResumeLayout(false);

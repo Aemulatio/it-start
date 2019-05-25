@@ -147,11 +147,11 @@ namespace it_start
             gMapControl1.Zoom--;
         }
 
-        private  void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        private void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            routes.Routes.RemoveAt(0);
-            markers.Markers.RemoveAt(0);
-            markers.Markers.RemoveAt(1);
+            //routes?.Routes.RemoveAt(0);
+            //markers?.Markers.RemoveAt(0);
+            //markers?.Markers.RemoveAt(1);
         }
     }
 }
