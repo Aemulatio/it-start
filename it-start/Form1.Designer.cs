@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.sidePanel = new System.Windows.Forms.Panel();
+            this.pointerPanel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.pointerPanel = new System.Windows.Forms.Panel();
             this.offerScreen1 = new it_start.offerScreen();
             this.mapScreen1 = new it_start.mapScreen();
             this.adminPanel1 = new it_start.AdminPanel();
@@ -57,6 +57,28 @@
             this.sidePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.sidePanel_MouseDown);
             this.sidePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.sidePanel_MouseMove);
             this.sidePanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.sidePanel_MouseUp);
+            // 
+            // pointerPanel
+            // 
+            this.pointerPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.pointerPanel.Location = new System.Drawing.Point(3, 104);
+            this.pointerPanel.Name = "pointerPanel";
+            this.pointerPanel.Size = new System.Drawing.Size(47, 15);
+            this.pointerPanel.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Transparent;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.Location = new System.Drawing.Point(3, 389);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(47, 48);
+            this.button3.TabIndex = 0;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -95,27 +117,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(370, 520);
             this.mainPanel.TabIndex = 1;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Transparent;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(3, 389);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(47, 48);
-            this.button3.TabIndex = 0;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // pointerPanel
-            // 
-            this.pointerPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.pointerPanel.Location = new System.Drawing.Point(3, 104);
-            this.pointerPanel.Name = "pointerPanel";
-            this.pointerPanel.Size = new System.Drawing.Size(47, 15);
-            this.pointerPanel.TabIndex = 1;
             // 
             // offerScreen1
             // 
