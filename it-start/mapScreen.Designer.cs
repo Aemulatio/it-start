@@ -78,6 +78,7 @@
             this.Name = "mapScreen";
             this.Size = new System.Drawing.Size(370, 520);
             this.Load += new System.EventHandler(this.mapScreen_Load);
+            this.Enter += new System.EventHandler(this.mapScreen_Enter);
             this.ResumeLayout(false);
 
         }
