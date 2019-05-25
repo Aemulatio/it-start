@@ -11,7 +11,7 @@ First of all, as a user, you have to choose where you want to go and where to go
 You can download a source code using
 
 ```
-https://github.com/Aemulatio/it-start.git
+git clone https://github.com/Aemulatio/it-start.git
 ```
 
 ## Built With
