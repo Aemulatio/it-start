@@ -51,7 +51,8 @@ namespace it_start
             gMapControl1.Position = new PointLatLng(50.273101, 127.537152);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        public void button1_Click(object sender, EventArgs e)
         {
             _points.Clear();
             gMapControl1.Overlays.Clear();
@@ -66,32 +67,20 @@ namespace it_start
                 markers.Markers.Add(marker);
                 markers.Markers.Add(new GMarkerGoogle(BPoint, GMarkerGoogleType.red_small));
                 gMapControl1.Overlays.Add(markers);
-
-                foreach (var VARIABLE in _points)
-                {
-                    Console.WriteLine(VARIABLE.Lat);
-                }
-
+                
                 var route = GoogleMapProvider.Instance.GetRoute(_points[0], _points[1], false, false, 13);
-
-                foreach (var VARIABLE in route.Points)
-                {
-                    Console.WriteLine(VARIABLE);
-                }
-
+                
                 var r = new GMapRoute(route.Points, "Route")
                 {
                     Stroke = new Pen(Color.Red, 5)
                 };
 
-                foreach (var VARIABLE in r.LocalPoints)
-                {
-                    Console.WriteLine(VARIABLE + " - r");
-                }
-
                 var routes = new GMapOverlay("routes");
                 routes.Routes.Add(r);
                 gMapControl1.Overlays.Add(routes);
+
+                gMapControl1.Zoom++;
+                gMapControl1.Zoom--;
             }
         }
     }
