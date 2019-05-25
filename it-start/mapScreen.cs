@@ -65,10 +65,10 @@ namespace it_start
                 try
                 {
                     SQLiteDataReader r = cmd.ExecuteReader();
-                    double ALat     = 0;
-                    double ALon     = 0;
-                    double BLat     = 0;
-                    double BLon     = 0;
+                    double ALat = 0;
+                    double ALon = 0;
+                    double BLat = 0;
+                    double BLon = 0;
                     string username = String.Empty;
                     while (r.Read())
                     {
@@ -80,10 +80,15 @@ namespace it_start
                         MessageBox.Show(username + " " + ALat + " " + ALon + " " + BLat + " " + BLon);
                         _points.Add(new PointLatLng(ALat, ALon));
                         _points.Add(new PointLatLng(BLat, BLon));
-                        markers.Markers.Add(new GMarkerGoogle(new PointLatLng(ALat, ALon), GMarkerGoogleType.red_small));
-                        markers.Markers.Add(new GMarkerGoogle(new PointLatLng(BLat, BLon), GMarkerGoogleType.red_small));
+                        markers.Markers.Add(new GMarkerGoogle(new PointLatLng(ALat, ALon),
+                            GMarkerGoogleType.green_small));
+                        markers.Markers.Add(new GMarkerGoogle(new PointLatLng(BLat, BLon),
+                            GMarkerGoogleType.red_small));
+
                         gMapControl1.Overlays.Add(markers);
+
                     }
+
                     r.Close();
                 }
                 catch (SQLiteException ex)
@@ -94,30 +99,22 @@ namespace it_start
                 conn.Dispose();
             }
 
-            var route1 = GoogleMapProvider.Instance.GetRoute(_points[0], _points[1], false, false, 13);
-            var route2 = GoogleMapProvider.Instance.GetRoute(_points[1], _points[2], false, false, 13);
-            var route3 = GoogleMapProvider.Instance.GetRoute(_points[2], _points[3], false, false, 13);
-            var r1 = new GMapRoute(route1.Points, "Route1")
-            {
-                Stroke = new Pen(Color.Red, 5)
-            };
-            var r2 = new GMapRoute(route2.Points, "Route2")
-            {
-                Stroke = new Pen(Color.Red, 5)
-            };
-            var r3 = new GMapRoute(route3.Points, "Route3")
-            {
-                Stroke = new Pen(Color.Red, 5)
-            };
             var routes = new GMapOverlay("routes");
-            routes.Routes.Add(r1);
-            routes.Routes.Add(r2);
-            routes.Routes.Add(r3);
+            for (int i = 0; i < _points.Count - 1; i++)
+            {
+                var route = GoogleMapProvider.Instance.GetRoute(_points[i], _points[i + 1], false, false, 13);
+                var r = new GMapRoute(route.Points, "Route1")
+                {
+                    Stroke = new Pen(Color.Red, 5)
+                };
+                routes.Routes.Add(r);
+            }
+
             gMapControl1.Overlays.Add(routes);
+
 
             //markers.Markers.Add(new GMarkerGoogle(new PointLatLng(ALat, ALon), GMarkerGoogleType.red_small));
             //gMapControl1.Overlays.Add(markers);
-
 
 
             //if (APoint != PointLatLng.Empty  && BPoint != PointLatLng.Empty)
