@@ -77,13 +77,35 @@ namespace it_start
                         ALon = double.Parse(r["ALon"].ToString());
                         BLat = double.Parse(r["BLat"].ToString());
                         BLon = double.Parse(r["BLon"].ToString());
-                        MessageBox.Show(username + " " + ALat + " " + ALon + " " + BLat + " " + BLon);
-                        _points.Add(new PointLatLng(ALat, ALon));
-                        _points.Add(new PointLatLng(BLat, BLon));
-                        markers.Markers.Add(new GMarkerGoogle(new PointLatLng(ALat, ALon),
+                        MessageBox.Show(" ");
+                        if(_points.Any(point => (point.Lat == ALat) && (point.Lng == ALon)))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            _points.Add(new PointLatLng(ALat, ALon));
+                            markers.Markers.Add(new GMarkerGoogle(new PointLatLng(ALat, ALon),
                             GMarkerGoogleType.green_small));
-                        markers.Markers.Add(new GMarkerGoogle(new PointLatLng(BLat, BLon),
+                        }
+                        if(_points.Any(point => (point.Lat == BLat) && (point.Lng == BLon)))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            _points.Add(new PointLatLng(BLat, BLon));
+                            markers.Markers.Add(new GMarkerGoogle(new PointLatLng(BLat, BLon),
                             GMarkerGoogleType.red_small));
+                        }
+
+                        
+                        //_points.Add(new PointLatLng(ALat, ALon));
+                        //_points.Add(new PointLatLng(BLat, BLon));
+                        //markers.Markers.Add(new GMarkerGoogle(new PointLatLng(ALat, ALon),
+                            //GMarkerGoogleType.green_small));
+                        //markers.Markers.Add(new GMarkerGoogle(new PointLatLng(BLat, BLon),
+                            //GMarkerGoogleType.red_small));
                         gMapControl1.Overlays.Add(markers);
                     }
 
