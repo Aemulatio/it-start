@@ -41,7 +41,6 @@ namespace it_start
 
         private void mapScreen_Load(object sender, EventArgs e)
         {
-            
             GMapProviders.GoogleMap.ApiKey = @"AIzaSyDFB7V9orDViDZtiduE-K6Q0SbIvoAT55U";
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.MapProvider = GMapProviders.GoogleMap;
@@ -131,10 +130,10 @@ namespace it_start
 
             additionalPoints = new List<PointLatLng>();
             additionalPoints.Add(new PointLatLng(50.262690, 127.540563));
-            additionalPoints.Add(new PointLatLng(50.259903, 127.513798));
+            // additionalPoints.Add(new PointLatLng(50.259903, 127.513798));
             additionalPoints.Add(new PointLatLng(50.262110, 127.546652));
-            additionalPoints.Add(new PointLatLng(50.260367, 127.566264));
-            additionalPoints.Add(new PointLatLng(50.267106, 127.552631));
+            // additionalPoints.Add(new PointLatLng(50.260367, 127.566264));
+            // additionalPoints.Add(new PointLatLng(50.267106, 127.552631));
             additionalPoints.AddRange(_points);
 
             _points.Clear();
@@ -150,11 +149,17 @@ namespace it_start
             if (markers.Markers.Count > 1)
             {
                 markers.Markers.RemoveAt(0);
+                if (routes.Routes.Count < 1)
+                {
+                    markers.Markers.Clear();
+                }
             }
             else
             {
                 markers.Clear();
             }
+
+            deletingTimer.Interval = 2000 * routes.Routes.ElementAt(0).Distance;
         }
 
         private List<PointLatLng> additionalPoints;
@@ -176,7 +181,6 @@ namespace it_start
                 markers.Markers.Add(new GMarkerGoogle(additionalPoints[temp],
                     GMarkerGoogleType.red_small));
 
-
                 var route = GoogleMapProvider.Instance.GetRoute(additionalPoints[start], additionalPoints[temp], false,
                     false, 13);
                 var r = new GMapRoute(route.Points, "Route")
@@ -195,11 +199,11 @@ namespace it_start
 
         private void mapScreen_Enter(object sender, EventArgs e)
         {
-            deletingTimer = new System.Timers.Timer(); 
+            deletingTimer = new System.Timers.Timer();
             addingTimer = new System.Timers.Timer();
 
             deletingTimer.Interval = 6000;
-            addingTimer.Interval = 5000;
+            addingTimer.Interval = 8000;
             // Hook up the Elapsed event for the timer. 
             deletingTimer.Elapsed += OnTimedEvent;
             addingTimer.Elapsed += AddingEvent;
@@ -211,7 +215,6 @@ namespace it_start
             // Start the timer
             deletingTimer.Enabled = true;
             addingTimer.Enabled = true;
-
         }
     }
 }
