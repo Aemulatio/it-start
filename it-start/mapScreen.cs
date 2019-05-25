@@ -52,7 +52,6 @@ namespace it_start
             gMapControl1.Position = new PointLatLng(50.273101, 127.537152);
         }
 
-
         public void button1_Click(object sender, EventArgs e)
         {
             _points.Clear();
@@ -85,9 +84,7 @@ namespace it_start
                             GMarkerGoogleType.green_small));
                         markers.Markers.Add(new GMarkerGoogle(new PointLatLng(BLat, BLon),
                             GMarkerGoogleType.red_small));
-
                         gMapControl1.Overlays.Add(markers);
-
                     }
 
                     r.Close();
@@ -111,8 +108,11 @@ namespace it_start
                 routes.Routes.Add(r);
             }
 
-                gMapControl1.Zoom++;
-                gMapControl1.Zoom--;
+            gMapControl1.Overlays.Add(routes);
+
+            gMapControl1.Zoom++;
+            gMapControl1.Zoom--;
+
         }
     }
 }
