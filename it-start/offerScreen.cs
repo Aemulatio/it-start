@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using GMap.NET;
 
 namespace it_start
 {
@@ -17,97 +18,71 @@ namespace it_start
         {
             InitializeComponent();
         }
-        float aLat, aLon, bLat, bLon;
 
-        public float ALat
+        PointLatLng aPoint, bPoint;
+
+        public PointLatLng APoint
         {
-            get { return aLat; }
-            set { aLat = value; }
+            get { return aPoint; }
+            set { aPoint = value; }
         }
 
-        public float ALon
+        public PointLatLng BPoint
         {
-            get { return aLon; }
-            set { aLon = value; }
+            get { return bPoint; }
+            set { bPoint = value; }
         }
 
-        public float BLat
-        {
-            get { return bLat; }
-            set { bLat = value; }
-        }
-
-        public float BLon
-        {
-            get { return bLon; }
-            set { bLon = value; }
-        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
             switch (comboBox1.SelectedIndex)
             {
                 case 0: // "Кузнечная(Ленина)":
-                    ALat = 50.256451f;
-                    ALon = 127.547085f;
-                    MessageBox.Show(ALat + ", " +ALon);
+                    APoint = PointLatLng.Add(new PointLatLng(50.256451, 127.547085), SizeLatLng.Empty);
                     break;
                 case 1: // "Театральная(Зейская)":
-                    ALat = 50.259320f;
-                    ALon = 127.550686f;
-                    MessageBox.Show(ALat + ", " + ALon);
+                    APoint = PointLatLng.Add(new PointLatLng(50.259320, 127.550686), SizeLatLng.Empty);
                     break;
                 case 2: //"Шимановского(Горького)":
-                    ALat = 50.265439f;
-                    ALon = 127.542868f;
-                    MessageBox.Show(ALat + ", " + ALon);
+                    APoint = PointLatLng.Add(new PointLatLng(50.265439, 127.542868), SizeLatLng.Empty);
                     break;
                 case 3: //"Универмаг":
-                    ALat = 50.262894f;
-                    ALon = 127.534690f;
-                    MessageBox.Show(ALat + ", " + ALon);
+                    APoint = PointLatLng.Add(new PointLatLng(50.262894, 127.534690), SizeLatLng.Empty);
                     break;
                 case 4: //"Шимановского(Ленина)":
-                    ALat = 50.257093f;
-                    ALon = 127.540564f;
-                    MessageBox.Show(ALat + ", " + ALon);
+                    APoint = PointLatLng.Add(new PointLatLng(50.257093, 127.540564), SizeLatLng.Empty);
                     break;
                 default:
-                    ALat = 0f;
-                    ALon = 0f;
                     break;
             }
 
             switch (comboBox2.SelectedIndex)
             {
                 case 0: // "Кузнечная(Ленина)":
-                    BLat = 50.256451f;
-                    BLon = 127.547085f;
-                    MessageBox.Show(BLat + ", " + BLon);
+
+                    BPoint = PointLatLng.Add(new PointLatLng(50.256451, 127.547085), SizeLatLng.Empty);
                     break;
                 case 1: // "Театральная(Зейская)":
-                    BLat = 50.259320f;
-                    BLon = 127.550686f;
-                    MessageBox.Show(BLat + ", " + BLon);
+
+                    BPoint = PointLatLng.Add(new PointLatLng(50.259320, 127.550686), SizeLatLng.Empty);
+
                     break;
                 case 2: //"Шимановского(Горького)":
-                    BLat = 50.265439f;
-                    BLon = 127.542868f;
-                    MessageBox.Show(BLat + ", " + BLon);
+
+                    BPoint = PointLatLng.Add(new PointLatLng(50.265439, 127.542868), SizeLatLng.Empty);
+
                     break;
                 case 3: //"Универмаг":
-                    BLat = 50.262894f;
-                    BLon = 127.534690f;
-                    MessageBox.Show(BLat + ", " + BLon);
+
+                    BPoint = PointLatLng.Add(new PointLatLng(50.262894, 127.534690), SizeLatLng.Empty);
+
                     break;
                 case 4: //"Шимановского(Ленина)":
-                    BLat = 50.257093f;
-                    BLon = 127.540564f;
-                    MessageBox.Show(BLat + ", " + BLon);
+
+                    BPoint = PointLatLng.Add(new PointLatLng(50.257093, 127.540564), SizeLatLng.Empty);
                     break;
                 default:
-                    BLat = 0f;
-                    BLon = 0f;
                     break;
             }
 
@@ -115,10 +90,13 @@ namespace it_start
             {
                 conn.Open();
                 SQLiteCommand cmd = conn.CreateCommand();
-                
+
                 try
                 {
-                    cmd.CommandText = "INSERT INTO ActiveResp (Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('"+comboBox1.Text+"','"+comboBox2.Text+"',"+ALon+","+ALat+","+BLon+","+BLat+")";
+                    cmd.CommandText = "INSERT INTO ActiveResp (Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('" +
+                                      comboBox1.Text + "','" + comboBox2.Text + "'," + APoint.Lng + "," + APoint.Lat +
+                                      "," + BPoint.Lng +
+                                      "," + BPoint.Lat + ")";
                     cmd.ExecuteNonQuery();
                 }
                 catch (SQLiteException ex)

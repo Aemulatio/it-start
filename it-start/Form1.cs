@@ -25,8 +25,8 @@ namespace it_start
         private void button2_Click(object sender, EventArgs e)
         {
             mapScreen1.BringToFront();
-            mapScreen1.APoint = new PointF(offerScreen1.ALat, offerScreen1.ALon);
-            mapScreen1.BPoint = new PointF(offerScreen1.BLat, offerScreen1.BLon);
+            mapScreen1.APoint = offerScreen1.APoint;
+            mapScreen1.BPoint = offerScreen1.BPoint;
         }
     }
 }
