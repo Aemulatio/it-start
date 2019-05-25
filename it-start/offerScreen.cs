@@ -94,9 +94,8 @@ namespace it_start
                 try
                 {
                     cmd.CommandText = "INSERT INTO ActiveResp (Astop, Bstop, ALon, ALat, BLon, BLat) VALUES ('" +
-                                      comboBox1.Text + "','" + comboBox2.Text + "'," + APoint.Lng + "," + APoint.Lat +
-                                      "," + BPoint.Lng +
-                                      "," + BPoint.Lat + ")";
+                                      comboBox1.Text + "','" + comboBox2.Text + "','" + APoint.Lng + "','" +
+                                      APoint.Lat + "','" + BPoint.Lng + "','" + BPoint.Lat + "')";
                     cmd.ExecuteNonQuery();
                 }
                 catch (SQLiteException ex)

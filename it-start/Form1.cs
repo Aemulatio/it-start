@@ -15,6 +15,7 @@ namespace it_start
         public MainForm()
         {
             InitializeComponent();
+            offerScreen1.BringToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,6 +28,11 @@ namespace it_start
             mapScreen1.BringToFront();
             mapScreen1.APoint = offerScreen1.APoint;
             mapScreen1.BPoint = offerScreen1.BPoint;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            adminPanel1.BringToFront();
         }
     }
 }
