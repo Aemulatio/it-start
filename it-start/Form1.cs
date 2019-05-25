@@ -45,6 +45,7 @@ namespace it_start
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             adminPanel1.BringToFront();
 
             pointerPanel.Width = button3.Width;
