@@ -14,11 +14,14 @@ using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using GMap.NET.WindowsForms.ToolTips;
 using System.Data.SQLite;
+using System.Threading;
 
 namespace it_start
 {
     public partial class mapScreen : UserControl
     {
+        private static System.Timers.Timer aTimer;
+
         public mapScreen()
         {
             InitializeComponent();
@@ -44,6 +47,18 @@ namespace it_start
 
         private void mapScreen_Load(object sender, EventArgs e)
         {
+            aTimer = new System.Timers.Timer();
+            aTimer.Interval = 2000;
+
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += OnTimedEvent;
+
+            // Have the timer fire repeated events (true is the default)
+            aTimer.AutoReset = true;
+
+            // Start the timer
+            aTimer.Enabled = true;
+
             GMapProviders.GoogleMap.ApiKey = @"AIzaSyDFB7V9orDViDZtiduE-K6Q0SbIvoAT55U";
             gMapControl1.DragButton = MouseButtons.Left;
             gMapControl1.MapProvider = GMapProviders.GoogleMap;
@@ -52,11 +67,14 @@ namespace it_start
             gMapControl1.Position = new PointLatLng(50.273101, 127.537152);
         }
 
+        private GMapOverlay markers;
+        private GMapOverlay routes;
+
         public void button1_Click(object sender, EventArgs e)
         {
             _points.Clear();
             gMapControl1.Overlays.Clear();
-            var markers = new GMapOverlay("markers");
+            markers = new GMapOverlay("markers");
             using (SQLiteConnection conn = new SQLiteConnection("Data Source=bus.db; Version=3;"))
             {
                 conn.Open();
@@ -77,7 +95,7 @@ namespace it_start
                         ALon = double.Parse(r["ALon"].ToString());
                         BLat = double.Parse(r["BLat"].ToString());
                         BLon = double.Parse(r["BLon"].ToString());
-                        if(_points.Any(point => (point.Lat == ALat) && (point.Lng == ALon)))
+                        if (_points.Any(point => (point.Lat == ALat) && (point.Lng == ALon)))
                         {
                             continue;
                         }
@@ -85,9 +103,10 @@ namespace it_start
                         {
                             _points.Add(new PointLatLng(ALat, ALon));
                             markers.Markers.Add(new GMarkerGoogle(new PointLatLng(ALat, ALon),
-                            GMarkerGoogleType.green_small));
+                                GMarkerGoogleType.green_small));
                         }
-                        if(_points.Any(point => (point.Lat == BLat) && (point.Lng == BLon)))
+
+                        if (_points.Any(point => (point.Lat == BLat) && (point.Lng == BLon)))
                         {
                             continue;
                         }
@@ -95,16 +114,9 @@ namespace it_start
                         {
                             _points.Add(new PointLatLng(BLat, BLon));
                             markers.Markers.Add(new GMarkerGoogle(new PointLatLng(BLat, BLon),
-                            GMarkerGoogleType.red_small));
+                                GMarkerGoogleType.red_small));
                         }
 
-                        
-                        //_points.Add(new PointLatLng(ALat, ALon));
-                        //_points.Add(new PointLatLng(BLat, BLon));
-                        //markers.Markers.Add(new GMarkerGoogle(new PointLatLng(ALat, ALon),
-                            //GMarkerGoogleType.green_small));
-                        //markers.Markers.Add(new GMarkerGoogle(new PointLatLng(BLat, BLon),
-                            //GMarkerGoogleType.red_small));
                         gMapControl1.Overlays.Add(markers);
                     }
 
@@ -118,11 +130,11 @@ namespace it_start
                 conn.Dispose();
             }
 
-            var routes = new GMapOverlay("routes");
+            routes = new GMapOverlay("routes");
             for (int i = 0; i < _points.Count - 1; i++)
             {
                 var route = GoogleMapProvider.Instance.GetRoute(_points[i], _points[i + 1], false, false, 13);
-                var r = new GMapRoute(route.Points, "Route1")
+                var r = new GMapRoute(route.Points, "Route" + i.ToString())
                 {
                     Stroke = new Pen(Color.Red, 3)
                 };
@@ -133,7 +145,13 @@ namespace it_start
 
             gMapControl1.Zoom++;
             gMapControl1.Zoom--;
+        }
 
+        private  void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            routes.Routes.RemoveAt(0);
+            markers.Markers.RemoveAt(0);
+            markers.Markers.RemoveAt(1);
         }
     }
 }
