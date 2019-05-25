@@ -15,10 +15,10 @@ namespace it_start
         public MainForm()
         {
             InitializeComponent();
-            offerScreen1.BringToFront();
+            homePage1.BringToFront();
 
-            pointerPanel.Width = button1.Width;
-            pointerPanel.Top = button1.Top + button1.Height;
+            pointerPanel.Width = homeBtn.Width;
+            pointerPanel.Top = homeBtn.Top + button1.Height;
         }
 
         private bool mouseDown;
@@ -71,6 +71,14 @@ namespace it_start
                     (this.Location.Y - lastLocation.Y) + e.Y);
                 this.Update();
             }
+        }
+
+        private void homeBtn_click(object sender, EventArgs e)
+        {
+            homePage1.BringToFront();
+
+            pointerPanel.Width = homeBtn.Width;
+            pointerPanel.Top = homeBtn.Top + button1.Height;
         }
     }
 }

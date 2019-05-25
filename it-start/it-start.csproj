@@ -97,6 +97,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="mapScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mapScreen.resx">
       <DependentUpon>mapScreen.cs</DependentUpon>
@@ -152,6 +161,7 @@
     <Content Include="Icons\admin.png" />
     <Content Include="Icons\route %281%29.png" />
     <Content Include="Icons\route.png" />
+    <Content Include="Icons\start.png" />
     <Content Include="Icons\tracking %2810%29.png" />
     <Content Include="Icons\tracking %286%29.png" />
     <Content Include="Icons\tracking %288%29.png" />
