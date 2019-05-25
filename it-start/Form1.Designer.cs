@@ -63,7 +63,7 @@
             this.pointerPanel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.pointerPanel.Location = new System.Drawing.Point(3, 104);
             this.pointerPanel.Name = "pointerPanel";
-            this.pointerPanel.Size = new System.Drawing.Size(47, 15);
+            this.pointerPanel.Size = new System.Drawing.Size(47, 3);
             this.pointerPanel.TabIndex = 1;
             // 
             // button3
