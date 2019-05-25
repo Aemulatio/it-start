@@ -77,7 +77,6 @@ namespace it_start
                         ALon = double.Parse(r["ALon"].ToString());
                         BLat = double.Parse(r["BLat"].ToString());
                         BLon = double.Parse(r["BLon"].ToString());
-                        MessageBox.Show(" ");
                         if(_points.Any(point => (point.Lat == ALat) && (point.Lng == ALon)))
                         {
                             continue;
@@ -125,7 +124,7 @@ namespace it_start
                 var route = GoogleMapProvider.Instance.GetRoute(_points[i], _points[i + 1], false, false, 13);
                 var r = new GMapRoute(route.Points, "Route1")
                 {
-                    Stroke = new Pen(Color.Red, 5)
+                    Stroke = new Pen(Color.Red, 3)
                 };
                 routes.Routes.Add(r);
             }
